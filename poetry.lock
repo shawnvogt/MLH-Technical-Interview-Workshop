@@ -1,0 +1,16 @@
+[[package]]
+category = "main"
+description = "Pbd is a Python module to disassemble serialized protocol buffers descriptors (https://developers.google.com/protocol-buffers/)."
+name = "pbd"
+optional = false
+python-versions = "*"
+version = "0.9"
+
+[metadata]
+content-hash = "642647af72974d37a4b616952670596cb654a0babb9deb1a9bf1546aec0dc612"
+python-versions = "^3.8"
+
+[metadata.files]
+pbd = [
+    {file = "pbd-0.9.zip", hash = "sha256:1027337d65ba95a6fa704a503ce89a2ef9039f1eb1835b893555d4c852b71ff1"},
+]
