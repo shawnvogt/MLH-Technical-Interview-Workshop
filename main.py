@@ -31,10 +31,10 @@ def fizzbuzz(n):
       print(i)
 
 # Test FizzBuzz 
-print("*"*50,"\ntesting fizzbuzz(32)\n","*"*50,sep="")
+print("*"*50,"\ntesting fizzbuzz(32)")
 fizzbuzz(32)
 # does it work with negative? 
-print("*"*50,"\ntesting fizzbuzz(-32)\n","*"*50,sep="")
+print("*"*50,"\ntesting fizzbuzz(-32)")
 fizzbuzz(-32)
 # it does not. If I wanted it to work with negative how could I modify the code to accomplish that?
 # I will make the assumption that if n is negative we want to iterate from -1 to n. If we were to  
@@ -46,9 +46,12 @@ def fizzbuzz2(n):
   # step is introduced to allow reverse iteration and can also be used to change
   # the start and stop of the range
   step = 1 if n > 0 else -1
-  for i in range(step, n + step, step):
+  for i in range(1, n + step, step):
+    # 0 modululo 3 or 5 will return 0 so we need to test if i is 0
+    if i == 0:
+      print(i)
     # If number is divisible by 3 and 5 it will be divisible by 3 * 5: print FizzBuzz
-    if i % 15 == 0:
+    elif i % 15 == 0:
       print("FizzBuzz")
     # Else if number is divisible by 5: print Buzz
     elif i % 5 == 0:
@@ -61,15 +64,14 @@ def fizzbuzz2(n):
       print(i)
 
 # does fizzbuzz still work with positive n
-print("*"*50,"\ntesting fizzbuzz2(32)\n","*"*50,sep="")
+print("*"*50,"\ntesting fizzbuzz2(32)")
 fizzbuzz2(32)
 # does fizzbuzz now work with negative n
-print("*"*50,"\ntesting fizzbuzz2(-32)\n","*"*50,sep="")
+print("*"*50,"\ntesting fizzbuzz2(-32)")
 fizzbuzz2(-32)
 # what happens if I try fizzbuzz2(0)? 
-# It should try to iterate from -1 to 0 + -1 and will product no output.
-# That is okay with me, you may want fizzbuzz(0) to print 0? I won't bother adding this in though
-print("*"*50,"\ntesting fizzbuzz2(0)\n","*"*50,sep="")
+# It should print 1 and 0
+print("*"*50,"\ntesting fizzbuzz2(0)")
 fizzbuzz2(0)
 
 """
@@ -96,15 +98,15 @@ def is_rotation(s1, s2):
 # return len(s1) == len(s2) and s1 in s2 * 2
 
 # Test with strings that are rotations
-print("*"*50,'\ntesting is_rotation("ABCD","DABC") should return True\n',"*"*50,sep="")
+print("*"*50,'\ntesting is_rotation("ABCD","DABC") should return True\n')
 print(is_rotation("ABCD","DABC"))
 
 # Test with strings where a rotation is contained but strings are different length
-print("*"*50,'\ntesting is_rotation("ABCD","DABCD") should return False\n',"*"*50,sep="")
+print("*"*50,'\ntesting is_rotation("ABCD","DABCD") should return False\n')
 print(is_rotation("ABCD","DABCD"))
 
 # Test with strings that are not rotations
-print("*"*50,'\ntesting is_rotation("ABCD","DBAC") should return False\n',"*"*50,sep="")
+print("*"*50,'\ntesting is_rotation("ABCD","DBAC") should return False\n')
 print(is_rotation("ABCD","DBAC"))
 
 """
@@ -134,24 +136,24 @@ def zigzag(nums):
 
 
 # Test with even legth list
-print("*"*50,'\ntesting zigzag([4, 3, 7, 8, 6, 2, 1, 1])\n',"*"*50,sep="")
+print("*"*50,'\ntesting zigzag([4, 3, 7, 8, 6, 2, 1, 1])\n')
 print(zigzag([4, 3, 7, 8, 6, 2, 1, 1]))
 
 # Test with odd legth list
-print("*"*50,'\ntesting zigzag([4, 3, 7, 8, 6, 2, 1])\n',"*"*50,sep="")
+print("*"*50,'\ntesting zigzag([4, 3, 7, 8, 6, 2, 1])\n')
 print(zigzag([4, 3, 7, 8, 6, 2, 1]))
 
 # Test with some more lists
-print("*"*50,'\ntesting zigzag(list) with a bunch of lists\n',"*"*50,sep="")
+print("*"*50,'\ntesting zigzag(list) with a bunch of lists\n')
 print(zigzag([4, 3, 7, 8, 6, 2, 1, 1, 1, 2, 2, 2, 15, 16, 20, 20, 7]))
 print(zigzag([1, 4, 3, 2, 1]))
 
 # The above works but what if we want to accomplish the same task with a 
-# better time complexity than nlogn
-# This solution was shown to me and not my own and although it has
-# a better time complexity it does not appear to work when there
-# are duplicate numbers in the list where my function does
-# some changes would be required to handle this
+# better time complexity than nlogn?
+# The below solution was shown to me, and is not my own. I have found that
+# although it has a better time complexity it does not appear to work when 
+# there are duplicate numbers in the list. My slower function handles these
+# fine. 
 
 def ziggyzag(arr, n):
   flag = True
@@ -169,15 +171,15 @@ def ziggy(arr):
   ziggyzag(arr, len(arr))
 
 # Test with even legth list
-print("*"*50,'\ntesting ziggy([4, 3, 7, 8, 6, 2, 1, 1])\n',"*"*50,sep="")
+print("*"*50,'\ntesting ziggy([4, 3, 7, 8, 6, 2, 1, 1])')
 ziggy([4, 3, 7, 8, 6, 2, 1, 1])
 
 # Test with odd legth list
-print("*"*50,'\ntestingy([4, 3, 7, 8, 6, 2, 1])\n',"*"*50,sep="")
+print("*"*50,'\ntestingy([4, 3, 7, 8, 6, 2, 1])')
 ziggy([4, 3, 7, 8, 6, 2, 1])
 
 # Test with some more lists
-print("*"*50,'\ntesting ziggy(list) with a bunch of lists\n',"*"*50,sep="")
+print("*"*50,'\ntesting ziggy(list) with a bunch of lists')
 ziggy([4, 3, 7, 8, 6, 2, 1, 1, 1, 2, 2, 2, 15, 16, 20, 20, 7])
 ziggy([1, 4, 3, 2, 1])
 
@@ -203,7 +205,7 @@ def triplet(nums):
         return "Yes"
   return "No"
 
-print("*"*50,'\ntesting triplet function\n',"*"*50,sep="")
+print("*"*50,'\ntesting triplet function')
 t = [10, 4, 6, 12, 5]
 print(f'{t} contains pythagorean triplet = {triplet(t)}')
 t = [3, 1, 4, 6, 5]
@@ -217,5 +219,5 @@ if they are anagrams (contain all the
 same letters) of each other.
 """
 def anagram(s1,s2):
-  return len(s1) == len(s2) and "".join(sorted(s1.lower())) == "".join(sorted(s1.lower()))
+  return len(s1) == len(s2) and "".join(sorted(s1.lower())) == "".join(sorted(s2.lower()))
 
