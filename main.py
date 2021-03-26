@@ -36,10 +36,8 @@ fizzbuzz(32)
 # does it work with negative? 
 print("*"*50,"\ntesting fizzbuzz(-32)")
 fizzbuzz(-32)
-# it does not. If I wanted it to work with negative how could I modify the code to accomplish that?
-# I will make the assumption that if n is negative we want to iterate from -1 to n. If we were to  
-# iterate from 1 to n on a negative number we would have to handle 0 as 0 % anynumber = zero and will
-# incorrectly print FizzBuzz.
+# it does not. 
+# Let's fix that in fizzbuzz2
 
 def fizzbuzz2(n):
   # Iterate through a range of number from 1 up to and including n
@@ -94,7 +92,7 @@ def is_rotation(s1, s2):
   else:
     return False
 
-# The code could refactored down to a signle line
+# The code could be refactored down to a single line
 # return len(s1) == len(s2) and s1 in s2 * 2
 
 # Test with strings that are rotations
@@ -219,5 +217,5 @@ if they are anagrams (contain all the
 same letters) of each other.
 """
 def anagram(s1,s2):
-  return len(s1) == len(s2) and "".join(sorted(s1.lower())) == "".join(sorted(s2.lower()))
+  return len(s1) == len(s2) and sorted(s1.lower()) == sorted(s2.lower())
 
